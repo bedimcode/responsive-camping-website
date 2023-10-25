@@ -8,9 +8,11 @@
   /*========== Colors ==========*/
   /*Color mode HSL(hue, saturation, lightness)*/
   --first-color: hsl(195, 100%, 30%);
-  --gradient-color: linear-gradient(90deg,
-                    hsl(210, 55%, 20%),
-                    hsl(192, 62%, 25%));
+  --gradient-color: linear-gradient(
+    90deg,
+    hsl(210, 55%, 20%),
+    hsl(192, 62%, 25%)
+  );
   --title-color: hsl(210, 52%, 20%);
   --text-color: hsl(210, 24%, 15%);
   --white-color: #fff;
@@ -21,8 +23,8 @@
   --body-font: "Poppins", sans-serif;
   --second-font: "Lora", serif;
   --biggest-font-size: 2.25rem;
-  --normal-font-size: .938rem;
-  --small-font-size: .813rem;
+  --normal-font-size: 0.938rem;
+  --small-font-size: 0.813rem;
 
   /*========== Font weight ==========*/
   --font-regular: 400;
@@ -39,7 +41,7 @@
   :root {
     --biggest-font-size: 4rem;
     --normal-font-size: 1rem;
-    --small-font-size: .875rem;
+    --small-font-size: 0.875rem;
   }
 }
 
@@ -74,7 +76,7 @@ img {
 
 /*=============== REUSABLE CSS CLASSES ===============*/
 .container {
-  max-width: 1120px;
+  max-width: 1300px;
   margin-inline: 1.5rem;
 }
 
@@ -83,31 +85,320 @@ img {
 }
 
 /*=============== HEADER & NAV ===============*/
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: var(--body-color);
+  z-index: var(--z-fixed);
+}
 
+.nav {
+  position: relative;
+  height: var(--header-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav__logo {
+  width: 36px;
+}
+
+.nav__toggle,
+.nav__close {
+  display: inline-flex;
+  font-size: 1.25rem;
+  color: var(--title-color);
+  cursor: pointer;
+}
 
 /* Navigation for mobile devices */
+@media screen and (max-width: 1023px) {
+  .nav__menu {
+    position: fixed;
+    top: -100%;
+    left: 0;
+    background-color: var(--body-color);
+    width: 100%;
+    box-shadow: 0 1px 16px hsla(210, 55%, 24%, 0.1);
+    padding-block: 3.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2.5rem;
+    transition: top 0.4s;
+  }
+}
 
+.nav__list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 2rem;
+}
+
+.nav__link {
+  color: var(--title-color);
+  transition: color 0.3s;
+}
+
+.nav__link:hover {
+  color: var(--first-color);
+}
+
+.nav__buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 0.75rem;
+}
+
+.nav__button-link,
+.nav__button-ghost {
+  display: inline-block;
+  color: var(--title-color);
+}
+
+.nav__button-ghost {
+  background-color: hsla(0, 0%, 100%, 0.3);
+  padding: 1rem 2.5rem;
+  border: 2px solid var(--title-color);
+  border-radius: 0.75rem;
+}
+
+.nav__close {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+}
 
 /* Show menu */
 
+.show-menu {
+  top: 0;
+}
 
 /* Change background header */
-
+.bg-header {
+  box-shadow: 0 1px 16px hsla(210, 55%, 24%, 0.12);
+}
 
 /*=============== HOME ===============*/
 
+.home {
+  position: relative;
+}
 
+.home__container {
+  padding-top: 8rem;
+  height: 100vh;
+}
+
+.home__content {
+  position: relative;
+  z-index: 2;
+}
+
+.home__data {
+  display: grid;
+  row-gap: 0.5rem;
+}
+
+.home__subtitle {
+  font-size: var(--small-font-size);
+  color: var(--first-color);
+  letter-spacing: 3px;
+}
+
+.home__title {
+  font-size: var(--biggest-font-size);
+  font-family: var(--second-font);
+  color: var(--title-color);
+}
+
+.home__description {
+  margin-bottom: 2.5rem;
+}
+
+.home__button {
+  display: inline-block;
+  background: var(--gradient-color);
+  color: var(--white-color);
+  width: max-content;
+  padding: 1rem 2rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 24px 32px hsla(210, 54%, 24%, 0.3);
+}
+
+.home__bird-1,
+.home__bird-2 {
+  position: absolute;
+  width: 60px;
+}
+
+.home__bird-1 {
+  bottom: -6rem;
+  rotate: -30deg;
+}
+
+.home__bird-2 {
+  top: 4.5rem;
+  right: 0;
+  rotate: -15deg;
+}
+
+.home__images {
+  z-index: 1;
+}
+
+.home__images img {
+  position: absolute;
+  max-width: initial;
+  width: 600px;
+  left: -7rem;
+  bottom: 0;
+}
 /*=============== BREAKPOINTS ===============*/
 /* For small devices */
+@media screen and (max-width: 305px) {
+  .container {
+    margin-inline: 1rem;
+  }
 
+  .home__title {
+    font-size: 2rem;
+  }
+}
 
 /* For taller devices */
+@media screen and (min-width: 376px) and (min-height: 800px) {
+  .home__container {
+    padding-top: 10rem;
+  }
 
+  .home__images img {
+    width: 700px;
+    left: -12rem;
+  }
+}
 
 /* For medium devices */
+@media screen and (min-width: 480px) {
+  .home__content {
+    max-width: 305px;
+  }
 
+  .home__bird-2 {
+    right: -3rem;
+  }
+
+  .home__images img {
+    width: initial;
+  }
+}
 
 /* For large devices */
 
+@media screen and (min-width: 1023px) {
+  .nav {
+    height: calc(var(--header-height) + 2rem);
+    column-gap: 4rem;
+  }
 
+  .nav__toggle,
+  .nav__close {
+    display: none;
+  }
+
+  .nav__menu {
+    width: 100%;
+    display: flex;
+    align-self: center;
+    justify-content: space-between;
+  }
+
+  .nav__list {
+    flex-direction: row;
+    column-gap: 5rem;
+  }
+
+  .nav__buttons {
+    flex-direction: row;
+    column-gap: 3rem;
+  }
+
+  .nav__logo {
+    width: 48px;
+  }
+
+  .home__content {
+    max-width: 550px;
+  }
+
+  .home__data {
+    row-gap: 1rem;
+  }
+
+  .home__subtitle {
+    font-size: var(--normal-font-size);
+  }
+
+  .home__description {
+    margin-bottom: 3rem;
+  }
+}
+
+@media screen and (min-width: 1120px) {
+  .container {
+    margin-inline: auto;
+  }
+}
+
+@media screen and (min-width: 1300px) {
+  .home__container {
+    height: 950px;
+    padding-top: 10rem;
+  }
+
+  .home__bird-1,
+  .home__bird-2 {
+    width: 80px;
+  }
+
+  .home__bird-1 {
+    bottom: -7rem;
+    left: -7rem;
+  }
+
+  .home__bird-2 {
+    top: 0;
+    right: -6rem;
+  }
+
+  .home__images img {
+    bottom: -3rem;
+  }
+
+  ::--webkit-scrollbar {
+    width: 0.6rem;
+    border-radius: 0.5rem;
+    background-color: hsl(220, 24%, 15%);
+  }
+
+  ::--webkit-scrollbar-thumb {
+    border-radius: 0.5rem;
+    background-color: hsl(220, 24%, 15%);
+  }
+}
 /* For 2K resolutions (2048 x 1152) */
+@media screen and (min-width: 2048px) {
+  .container {
+    max-width: 1500px;
+  }
+
+  .home__container {
+    height: 1200px;
+    padding-top: 15rem;
+  }
+}

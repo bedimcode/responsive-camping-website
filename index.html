@@ -1,38 +1,104 @@
 <!DOCTYPE html>
-   <html lang="en">
+<html lang="en">
    <head>
       <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+      <link rel="shortcut icon" href="assets/img/favicon.png"
+         type="image/x-icon">
 
-      <!--=============== FAVICON ===============-->
-      <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
+      <link rel="stylesheet"
+         href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.4.0/remixicon.css"
+         crossorigin="">
 
-      <!--=============== REMIXICONS ===============-->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.4.0/remixicon.css" crossorigin="">
-      
-      <!--=============== CSS ===============-->
       <link rel="stylesheet" href="assets/css/styles.css">
 
       <title>Responsive camping website - Bedimcode</title>
    </head>
    <body>
-      <!--==================== HEADER ====================-->
       <header class="header" id="header">
-         
+         <nav class="nav container">
+            <a href="#" class="nav__logo">
+               <img src="assets/img/logo.svg" alt="">
+            </a>
+
+            <div class="nav__menu" id="nav-menu">
+               <ul class="nav__list">
+                  <li class="nav__item">
+                     <a href="#" class="nav__link">Home</a>
+                  </li>
+
+                  <li class="nav__item">
+                     <a href="#" class="nav__link">Pricing</a>
+                  </li>
+
+                  <li class="nav__item">
+                     <a href="#" class="nav__link">Events</a>
+                  </li>
+
+                  <li class="nav__item">
+                     <a href="#" class="nav__link">Contact</a>
+                  </li>
+               </ul>
+
+               <div class="nav__buttons">
+                  <a href="#" class="nav__button-link">Login</a>
+                  <a href="" class="nav__button-ghost">Get Started</a>
+               </div>
+
+               <!-- close button -->
+               <div class="nav__close" id="nav-close">
+                  <i class="ri-close-line"></i>
+               </div>
+            </div>
+
+            <!-- Toggle button -->
+            <div class="nav__toggle" id="nav-toggle">
+               <i class="ri-menu-line"></i>
+            </div>
+         </nav>
       </header>
 
-      <!--==================== MAIN ====================-->
       <main class="main">
-         <!--==================== HOME ====================-->
          <section class="home">
-            
+            <div class="home__container container">
+               <div class="home__content">
+                  <div class="home__data">
+                     <h3 class="home__subtitle">
+                        A LIFETIME EXPERIENCE
+                     </h3>
+
+                     <h1 class="home__title">
+                        Camping Events <br>
+                        To Remember
+                     </h1>
+
+                     <p class="home__description">
+                        Camp anywhere anytime without hassle and enjoy
+                     </p>
+
+                     <a href="#" class="home__button">
+                        Explore Locations
+                     </a>
+                  </div>
+
+                  <img src="assets/img/bird-1.svg" alt="" class="home__bird-1">
+                  <img src="assets/img/bird-2.svg" alt="" class="home__bird-2">
+               </div>
+
+               <div class="home__images">
+                  <img src="assets/img/img-4.svg" alt="" class="home__img-4">
+                  <img src="assets/img/img-3.svg" alt="" class="home__img-3">
+                  <img src="assets/img/img-2.svg" alt="" class="home__img-2">
+                  <img src="assets/img/img-1.svg" alt="" class="home__img-1">
+               </div>
+            </div>
          </section>
       </main>
-      
-      <!--=============== GSAP ===============-->
-      <script src=""></script>
 
-      <!--=============== MAIN JS ===============-->
+      <script src="assets/js/gsap.min.js"></script>
+
       <script src="assets/js/main.js"></script>
    </body>
 </html>
